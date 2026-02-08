@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Navigate } from "react-router-dom";
 import "./index.css";
+const BASE_URL = "https://shopping-backend-h9em.onrender.com";
 
 class Home extends Component {
   state = {

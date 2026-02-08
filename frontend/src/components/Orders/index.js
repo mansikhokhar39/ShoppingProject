@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Navigate, Link } from "react-router-dom";
 import "./index.css";
-
+const BASE_URL = "https://shopping-backend-h9em.onrender.com";
 class Orders extends Component {
   state = {
     orders: [],
@@ -16,7 +16,7 @@ class Orders extends Component {
       return;
     }
 
-    fetch("http://localhost:5000/orders", {
+    fetch(`${BASE_URL}/orders`, {
       headers: {
         Authorization: token
       }

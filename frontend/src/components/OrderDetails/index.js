@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import Navbar from "../Navbar";
 import "./index.css";
+const BASE_URL = "https://shopping-backend-h9em.onrender.com";
 
 class OrderDetailsClass extends Component {
   state = {
@@ -19,7 +20,7 @@ class OrderDetailsClass extends Component {
     const orderIndex = this.props.orderId;
 
     // ✅ FETCH ORDERS FROM BACKEND
-    fetch("http://localhost:5000/orders", {
+    fetch(`${BASE_URL}/orders`, {
       headers: {
         Authorization: token
       }

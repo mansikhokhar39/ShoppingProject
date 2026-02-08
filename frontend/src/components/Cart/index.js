@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import "./index.css";
 
+/* ✅ BACKEND URL (Render) */
+const BASE_URL = "https://shopping-backend-h9em.onrender.com";
+
 /* Wrapper */
 function CartWithLocation(props) {
   const location = useLocation();
@@ -38,7 +41,7 @@ class Cart extends Component {
   }
 
   loadCart = () => {
-    fetch("http://localhost:5000/carts", {
+    fetch(`${BASE_URL}/carts`, {
       headers: {
         Authorization: localStorage.getItem("token")
       }
@@ -53,7 +56,7 @@ class Cart extends Component {
   };
 
   increaseQty = (itemId) => {
-    fetch("http://localhost:5000/carts", {
+    fetch(`${BASE_URL}/carts`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -88,7 +91,7 @@ class Cart extends Component {
   placeOrder = () => {
     if (!this.state.address.trim()) return;
 
-    fetch("http://localhost:5000/orders", {
+    fetch(`${BASE_URL}/orders`, {
       method: "POST",
       headers: {
         Authorization: localStorage.getItem("token")
@@ -96,7 +99,6 @@ class Cart extends Component {
     })
       .then(res => {
         if (!res.ok) throw new Error();
-        // ✅ show success card instead of alert
         this.setState({
           orderPlaced: true,
           showCheckoutForm: false

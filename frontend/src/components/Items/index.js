@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Navigate } from "react-router-dom";
 import "./index.css";
+const BASE_URL = "https://shopping-backend-h9em.onrender.com";
 
 class Items extends Component {
   state = {
@@ -17,7 +18,7 @@ class Items extends Component {
       return;
     }
 
-    fetch("http://localhost:5000/items")
+    fetch(`${BASE_URL}/items`)
       .then(res => res.json())
       .then(data => {
         this.setState({

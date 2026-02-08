@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Navigate } from "react-router-dom";
 import "./index.css";
+const BASE_URL = "https://shopping-backend-h9em.onrender.com";
 
 class Login extends Component {
   state = {
@@ -25,7 +26,7 @@ class Login extends Component {
     e.preventDefault();
     this.setState({ loading: true });
 
-    fetch("http://localhost:5000/users/login", {
+    fetch(`${BASE_URL}/users/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
