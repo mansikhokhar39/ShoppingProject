@@ -1,0 +1,77 @@
+@baseUrl = http://localhost:5000
+
+# 🔑 Login ke baad yahan NEW token paste karo
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ODgyYTg0NmViODIwYTkyMGQ5ZTVjZSIsImlhdCI6MTc3MDUzMTc3MX0.TejKZ__nbxvtCqvR8g3X6qMTq7tXFshvbVzaDLlYrb0
+
+
+### ===============================
+### 1️⃣ SIGNUP USER
+### ===============================
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "username": "mansi",
+  "password": "123456"
+}
+
+
+### ===============================
+### 2️⃣ LOGIN USER (TOKEN YAHIN SE MILEGA 🔑)
+### ===============================
+POST {{baseUrl}}/users/login
+Content-Type: application/json
+
+{
+  "username": "mansi",
+  "password": "123456"
+}
+
+# ⬆️ Response se token copy karke
+# ⬇️ upar @token me paste karo
+
+
+### ===============================
+### 3️⃣ GET ALL ITEMS (NO TOKEN REQUIRED)
+### ===============================
+GET {{baseUrl}}/items
+
+
+### ===============================
+### 4️⃣ ADD ITEM TO CART (TOKEN REQUIRED)
+### ===============================
+POST {{baseUrl}}/carts
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+  "itemId": "69882f64183ec713948a5417"
+}
+
+
+### ===============================
+### 5️⃣ GET USER CART
+### ===============================
+GET {{baseUrl}}/carts
+Authorization: {{token}}
+
+
+### ===============================
+### 6️⃣ PLACE ORDER (CHECKOUT)
+### ===============================
+POST {{baseUrl}}/orders
+Authorization: {{token}}
+
+
+### ===============================
+### 7️⃣ GET ORDER HISTORY
+### ===============================
+GET {{baseUrl}}/orders
+Authorization: {{token}}
+
+
+### ===============================
+### 8️⃣ LOGOUT USER
+### ===============================
+POST {{baseUrl}}/users/logout
+Authorization: {{token}}
