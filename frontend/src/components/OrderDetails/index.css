@@ -1,0 +1,20 @@
+.order-items li {
+  background: #ffffff;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-name {
+  font-weight: 500;
+  color: #333;
+}
+
+.item-price {
+  color: #6f63f2;
+  font-weight: 600;
+}

@@ -1,0 +1,51 @@
+.success-page {
+  height: 100vh;
+  background: #f6f7fb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-card {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.15);
+  text-align: center;
+  max-width: 420px;
+}
+
+.success-card h2 {
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.success-card p {
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.success-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.success-actions button {
+  padding: 10px 22px;
+  border-radius: 22px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  background: #6f63f2;
+  color: white;
+}
+
+.success-actions button.secondary {
+  background: #e0e0ff;
+  color: #6f63f2;
+}
+
+.success-actions button:hover {
+  opacity: 0.9;
+}

@@ -1,0 +1,79 @@
+.signup-page {
+  height: 100vh;
+  background: linear-gradient(135deg, #6f63f2, #8b7cf6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Card */
+.signup-card {
+  background: #ffffff;
+  padding: 35px;
+  width: 320px;
+  border-radius: 14px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+  text-align: center;
+}
+
+/* Heading */
+.signup-card h2 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 22px;
+}
+
+/* Inputs */
+.signup-card input {
+  width: 100%;
+  padding: 11px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  outline: none;
+}
+
+.signup-card input:focus {
+  border-color: #6f63f2;
+}
+
+/* Button */
+.signup-card button {
+  width: 100%;
+  padding: 11px;
+  margin-top: 5px;
+  background: #6f63f2;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.signup-card button:hover {
+  background: #5a4fe0;
+}
+
+.signup-card button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Login link */
+.login-link {
+  margin-top: 18px;
+  font-size: 14px;
+  color: #555;
+}
+
+.login-link span {
+  color: #6f63f2;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.login-link span:hover {
+  text-decoration: underline;
+}
