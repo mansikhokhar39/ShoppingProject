@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Navigate } from "react-router-dom";
 import "./index.css";
+
 const BASE_URL = "https://shopping-backend-h9em.onrender.com";
 
 class Items extends Component {
@@ -18,7 +19,12 @@ class Items extends Component {
       return;
     }
 
-    fetch(`${BASE_URL}/items`)
+    // ✅ ONLY FIX: Authorization header added
+    fetch(`${BASE_URL}/items`, {
+      headers: {
+        Authorization: token
+      }
+    })
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -33,7 +39,7 @@ class Items extends Component {
   }
 
   addToCart = (itemId) => {
-    fetch("http://localhost:5000/carts", {
+    fetch(`${BASE_URL}/carts`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -54,13 +60,10 @@ class Items extends Component {
       });
   };
 
-  // ✅ GROUP ITEMS BY CATEGORY
   groupByCategory = () => {
     return this.state.items.reduce((acc, item) => {
       const category = item.category || "Others";
-      if (!acc[category]) {
-        acc[category] = [];
-      }
+      if (!acc[category]) acc[category] = [];
       acc[category].push(item);
       return acc;
     }, {});
@@ -69,13 +72,9 @@ class Items extends Component {
   render() {
     const { loading, redirectToLogin, addedItemId } = this.state;
 
-    if (redirectToLogin) {
-      return <Navigate to="/login" />;
-    }
+    if (redirectToLogin) return <Navigate to="/login" />;
 
-    if (loading) {
-      return <p style={{ padding: 30 }}>Loading items...</p>;
-    }
+    if (loading) return <p style={{ padding: 30 }}>Loading items...</p>;
 
     const groupedItems = this.groupByCategory();
     const categories = Object.keys(groupedItems);

@@ -1,17 +1,15 @@
 import React, { Component } from "react";
 import { Navigate } from "react-router-dom";
 import "./index.css";
-const BASE_URL = "https://shopping-backend-h9em.onrender.com";
 
 class Home extends Component {
   state = {
-    redirectTo: null
+    redirectTo: null,
   };
 
   componentDidMount() {
     const token = localStorage.getItem("token");
 
-    // Agar already logged in hai → items
     if (token) {
       this.setState({ redirectTo: "/items" });
     }
@@ -26,8 +24,10 @@ class Home extends Component {
   };
 
   render() {
-    if (this.state.redirectTo) {
-      return <Navigate to={this.state.redirectTo} />;
+    const { redirectTo } = this.state;
+
+    if (redirectTo) {
+      return <Navigate to={redirectTo} />;
     }
 
     return (
